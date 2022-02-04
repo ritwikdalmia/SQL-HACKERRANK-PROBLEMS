@@ -12,9 +12,10 @@ Not A Triangle: The given values of A, B, and C don't form a triangle.
 The TRIANGLES table is described as follows:  
   
 ![img](https://s3.amazonaws.com/hr-challenge-images/12887/1443815629-ac2a843fb7-1.png)  
+
+
 **Solution**
-  
-	```sql
+ ```sql
 
 SELECT 
 	CASE 
@@ -24,7 +25,7 @@ SELECT
 	ELSE 'Scalene'
 	END 
 	FROM TRIANGLES;
-	```
+```
   
   	
   	
