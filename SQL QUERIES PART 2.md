@@ -166,13 +166,14 @@ Inner: If node is neither root nor leaf node.
 ![img](https://s3.amazonaws.com/hr-challenge-images/12888/1443773633-f9e6fd314e-simply_sql_bst.png)  
   **Solution**
 	```sql SELECT N,
-	CASE
-	WHEN P IS NULL THEN 'Root'
-	WHEN N IN (SELECT P FROM BST) THEN 'Inner'
-	ELSE 'Leaf'
-	END
-	FROM BST
-	ORDER by N;
+    CASE
+    WHEN P IS NULL THEN 'Root'
+    WHEN N IN (SELECT P FROM BST) THEN 'Inner'
+    ELSE 'Leaf'
+    END
+    FROM BST
+    ORDER by N;
+  
   ```
   
   
