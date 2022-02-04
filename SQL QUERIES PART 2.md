@@ -68,15 +68,12 @@ An OCCUPATIONS table that contains the following records:
 	There are a total of 3 actors.  
 	There are a total of 3 professors.  
 	**Solution**
-	```sql
-SELECT * FROM CITY WHERE COUNTRYCODE = 'USA' AND POPULATION > 100000;
-```
-	
-	
 	
   
-	``` sql SELECT (name || '(' || SUBSTR(occupation,1,1) || ')') FROM occupations ORDER BY name;
-	SELECT ('There are a total of ' || COUNT(occupation) || ' ' || LOWER(occupation) || 's' || '.') FROM occupations GROUP BY occupation ORDER BY COUNT(occupation), occupation ASC;
+	``` sql
+	
+SELECT (name || '(' || SUBSTR(occupation,1,1) || ')') FROM occupations ORDER BY name;
+SELECT ('There are a total of ' || COUNT(occupation) || ' ' || LOWER(occupation) || 's' || '.') FROM occupations GROUP BY occupation ORDER BY COUNT(occupation), occupation ASC;
   ```
   
   
