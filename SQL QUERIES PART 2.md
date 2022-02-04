@@ -12,6 +12,7 @@ Not A Triangle: The given values of A, B, and C don't form a triangle.
 The TRIANGLES table is described as follows:  
   
 ![img](https://s3.amazonaws.com/hr-challenge-images/12887/1443815629-ac2a843fb7-1.png)  
+**Solution**
   
 	```sql
 
@@ -64,7 +65,8 @@ An OCCUPATIONS table that contains the following records:
 	There are a total of 2 doctors.  
 	There are a total of 2 singers.  
 	There are a total of 3 actors.  
-	There are a total of 3 professors.   
+	There are a total of 3 professors.  
+	**Solution**
   
 	``` sql SELECT (name || '(' || SUBSTR(occupation,1,1) || ')') FROM occupations ORDER BY name;
 	SELECT ('There are a total of ' || COUNT(occupation) || ' ' || LOWER(occupation) || 's' || '.') FROM occupations GROUP BY occupation ORDER BY COUNT(occupation), occupation ASC;
@@ -101,8 +103,10 @@ The second column is an alphabetically ordered list of Professor names.
 The third column is an alphabetically ordered list of Singer names.  
 The fourth column is an alphabetically ordered list of Actor names.  
 The empty cell data for columns with less than the maximum number of names per occupation (in this case, the Professor and Actor columns) are filled with NULL values.  
-  
-	``` sql SET @d = 0, @p = 0, @s = 0, @a = 0;
+  **Solution**
+	``` sql
+	
+	SET @d = 0, @p = 0, @s = 0, @a = 0;
 SELECT MIN(DOCTOR_NAMES), MIN(PROFESSOR_NAMES), MIN(SINGER_NAMES), MIN(ACTOR_NAMES)
 FROM
   (
@@ -153,7 +157,7 @@ Inner: If node is neither root nor leaf node.
 ***Explanation***  
   
 ![img](https://s3.amazonaws.com/hr-challenge-images/12888/1443773633-f9e6fd314e-simply_sql_bst.png)  
-  
+  **Solution**
 	```sql SELECT N,
 	CASE
 	WHEN P IS NULL THEN 'Root'
@@ -198,7 +202,9 @@ Manager: The manager_code is the code of the manager, the senior_manager_code is
 Employee: The employee_code is the code of the employee, the manager_code is the code of its manager, the senior_manager_code is the code of its senior manager, the lead_manager_code is the code of its lead manager, and the company_code is the code of the working company.   
   
 ![IMG](https://s3.amazonaws.com/hr-challenge-images/19505/1458535002-d47f63cbb4-ScreenShot2016-03-21at8.50.41AM.png)  
-  
+ 
+ **Solution**
+ 
 	``` sql SELECT c.company_code, c.founder, COUNT(DISTINCT e.lead_manager_code), COUNT(DISTINCT e.senior_manager_code), COUNT(DISTINCT e.manager_code), COUNT(DISTINCT e.employee_code) FROM company c
 	JOIN employee e ON c.company_code = e.company_code GROUP BY c.company_code, c.founder ORDER BY c.company_code;
 	
