@@ -331,8 +331,8 @@ where LAT_N is the northern latitude and LONG_W is the western longitude.
 
 **Solution**
 ```sql
-SELECT DISTINCT CITY FROM STATION WHERE upper(SUBSTR(CITY,1,1)) NOT IN ('A','E','I','O','U') AND lower(SUBSTR(CITY,1,1)) NOT IN
-('a','e','i','o','u');     
+SELECT DISTINCT CITY FROM STATION WHERE NOT (CITY LIKE 'A%' OR CITY LIKE 'E%' OR CITY LIKE 'I%' OR CITY LIKE 'O%' OR CITY LIKE 'U%') AND (CITY LIKE '%a' OR CITY LIKE '%e' OR CITY LIKE '%i' OR CITY LIKE '%o' OR CITY LIKE '%u') order by city;
+    
 ```
 
 ###**[Weather Observation Station 10](https://www.hackerrank.com/challenges/weather-observation-station-10/problem)**
@@ -355,7 +355,7 @@ where LAT_N is the northern latitude and LONG_W is the western longitude.
 
 **Solution**
 ```sql
-SELECT DISTINCT CITY FROM STATION WHERE UPPER(SUBSTR(CITY, LENGTH(CITY), 1)) NOT IN ('A','E','I','O','U') AND LOWER(SUBSTR(CITY, LENGTH(CITY),1)) NOT IN ('a','e','i','o','u');    
+SELECT DISTINCT CITY FROM STATION WHERE NOT (CITY LIKE '%a' OR CITY LIKE '%e' OR CITY LIKE '%i' OR CITY LIKE '%o' OR CITY LIKE '%u') order by city;  
 ```
 
 ###**[Weather Observation Station 11](https://www.hackerrank.com/challenges/weather-observation-station-11/problem)**
@@ -378,8 +378,7 @@ where LAT_N is the northern latitude and LONG_W is the western longitude.
 
 **Solution**
 ```sql
-SELECT DISTINCT CITY FROM STATION WHERE LOWER(SUBSTR(CITY,1,1)) NOT IN ('a','e','i','o','u') OR LOWER(SUBSTR(CITY, LENGTH(CITY),1)) NOT IN ('a','e','i','o','u');   
-```
+SELECT DISTINCT(CITY) FROM STATION WHERE not(CITY LIKE '%a' OR CITY LIKE '%e' OR CITY LIKE '%i' OR CITY LIKE '%o' OR CITY LIKE '%u') or not  (CITY LIKE 'a%' OR CITY LIKE 'e%' OR CITY LIKE 'i%' OR CITY LIKE 'o%' OR CITY LIKE 'u%') ;   ```
 
 ###**[Weather Observation Station 12](https://www.hackerrank.com/challenges/weather-observation-station-12/problem)**
 
@@ -401,7 +400,7 @@ where LAT_N is the northern latitude and LONG_W is the western longitude.
 
 **Solution**
 ```sql
-SELECT DISTINCT CITY FROM STATION WHERE LOWER(SUBSTR(CITY,1,1)) NOT IN ('a','e','i','o','u') AND LOWER(SUBSTR(CITY,LENGTH(CITY),1)) NOT IN ('a','e','i','o','u');    
+SELECT DISTINCT(CITY) FROM STATION WHERE not (CITY LIKE '%a' OR CITY LIKE '%e' OR CITY LIKE '%i' OR CITY LIKE '%o' OR CITY LIKE '%u') and  not (CITY LIKE 'a%' OR CITY LIKE 'e%' OR CITY LIKE 'i%' OR CITY LIKE 'o%' OR CITY LIKE 'u%');
 ```
 
 ###**[Higher Than 75 marks](https://www.hackerrank.com/challenges/more-than-75-marks/problem)**
@@ -492,7 +491,7 @@ Todd
 
 **Solution**
 ```sql
-SELECT NAME FROM EMPLOYEE ORDER BY NAME;   
+SELECT NAME FROM EMPLOYEE ORDER BY NAME ASC;   
 ```
 
 ###**[Employee Salaries](https://www.hackerrank.com/challenges/salary-of-employees/problem)**
@@ -544,5 +543,5 @@ We order our output by ascending employee_id.
 
 **Solution**
 ```sql
-SELECT NAME FROM EMPLOYEE WHERE SALARY > 2000  AND MONTHS < 10 ORDER BY EMPLOYEE_ID;  
+SELECT NAME FROM EMPLOYEE WHERE SALARY > 2000  AND MONTHS < 10 ORDER BY EMPLOYEE_ID ASC;  
 ```
