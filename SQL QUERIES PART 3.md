@@ -1,4 +1,4 @@
-###** revising-aggregations-the count-functions(https://www.hackerrank.com/challenges/revising-aggregations-the-count-function)**
+###**[revising-aggregations-the count-functions](https://www.hackerrank.com/challenges/revising-aggregations-the-count-function)**
 
 Query a count of the number of cities in CITY having a Population larger than .
 
