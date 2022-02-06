@@ -78,3 +78,28 @@ challenge_counter =(
 
 ORDER BY challenge_counter DESC, h.hacker_id ASC;
 ```
+
+
+
+
+**[q4 contest-leaderboard](https://www.hackerrank.com/challenges/contest-leaderboard)**
+
+
+
+You did such a great job helping Julia with her last coding contest challenge that she wants you to work on this one, too!
+The total score of a hacker is the sum of their maximum scores for all of the challenges. Write a query to print the hacker_id, name, and total score of the hackers ordered by the descending score. If more than one hacker achieved the same total score, then sort the result by ascending hacker_id. Exclude all hackers with a total score of 0 from your result.
+
+
+**solution**
+```sql
+
+select s.hacker_id, h.name, sum(s.score) as total_score from
+(select hacker_id, challenge_id, max(score) as score
+from Submissions group by hacker_id, challenge_id) as s
+join hackers as h
+on s.hacker_id = h.hacker_id
+group by s.hacker_id, h.name
+having total_score > 0
+order by total_score desc, s.hacker_id;
+
+```
